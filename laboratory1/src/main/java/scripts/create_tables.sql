@@ -4,7 +4,8 @@ CREATE TABLE Books (
                        Author INTEGER  REFERENCES Authors (Author_ID),
                        YEAR INTEGER ,
                        Genre  varchar(255),
-                       Subject varchar(255)
+                       Subject varchar(255),
+                       Abstract varchar (2000)
 );
 CREATE  TABLE Authors (
                          Author_ID INTEGER  NOT NULL PRIMARY KEY,
