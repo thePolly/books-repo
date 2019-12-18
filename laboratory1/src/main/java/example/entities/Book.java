@@ -1,28 +1,30 @@
 package example.entities;
 
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Data
 @Entity
-public class Book {
+@Table(name = "books")
+public class Book  implements java.io.Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "book_id")
     private long bookId;
+
     private String name;
-    private long author;
+
+    @ManyToMany
+    @JoinColumn(name = "author")
+    private List<Author> author;
     private long year;
     private String genre;
     private String subject;
     private String Abstract;
-
-
 
 }
 
