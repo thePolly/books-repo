@@ -24,7 +24,8 @@ public class Book  implements java.io.Serializable{
     private long year;
     private String genre;
     private String subject;
-    private String Abstract;
+    @Column(name = "abstract")
+    private String booksAbstract;
 
 }
 

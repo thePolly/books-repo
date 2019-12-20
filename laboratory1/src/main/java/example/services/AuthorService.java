@@ -1,16 +1,17 @@
 package example.services;
 
 import example.dao.implementation.AuthorDAOImpl;
+import example.dao.interfaces.AuthorDAO;
 import example.entities.Author;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.util.List;
-@Stateless
+@Stateless(name = "AuthorService")
 public class AuthorService {
 
     @EJB(beanName  = "AuthorDAO")
-    private AuthorDAOImpl authorDAO;
+    private AuthorDAO authorDAO;
 
     public void create(Author author) {
         authorDAO.create(author);
