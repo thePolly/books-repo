@@ -7,13 +7,15 @@ import example.entities.Author;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
 @Stateless(name = "AuthorDAOImpl")
 public class AuthorDAOImpl implements AuthorDAO {
 
-    EntityManager entityManager = Persistence.createEntityManagerFactory("authorsManager").createEntityManager();
+    @PersistenceContext(name = "authorsManager")
+    EntityManager entityManager;
 
     public void create(Author author) {
         entityManager.getTransaction().begin();

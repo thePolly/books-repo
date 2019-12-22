@@ -7,10 +7,11 @@ import example.entities.Author;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.util.List;
-@Stateless(name = "AuthorService")
+
+@Stateless
 public class AuthorService {
 
-    @EJB(beanName  = "AuthorDAO")
+    @EJB
     private AuthorDAO authorDAO;
 
     public void create(Author author) {

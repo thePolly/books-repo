@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
-@Stateless(name = "BookDAOImpl")
+
 public class BookDAOImpl implements BookDAO {
 
     EntityManager entityManager = Persistence.createEntityManagerFactory("booksManager").createEntityManager();

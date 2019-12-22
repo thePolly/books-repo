@@ -3,10 +3,10 @@ DROP TABLE authors CASCADE ;
 DROP TABLE books  ;
 
 CREATE  TABLE Authors (
-                          Author_ID INTEGER  PRIMARY KEY,
+                          Author_ID bigint PRIMARY KEY,
                           FirstName varchar(255),
                           LastName varchar(255),
-                          YEAR_of_Birth INTEGER
+                          YEAR_of_Birth bigint
 );
 CREATE TABLE Books (
                        Book_ID INTEGER   PRIMARY KEY,

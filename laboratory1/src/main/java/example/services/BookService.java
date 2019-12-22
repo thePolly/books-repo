@@ -4,11 +4,12 @@ import example.dao.implementation.BookDAOImpl;
 import example.entities.Book;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import java.util.List;
 
 public class BookService {
 
-    @EJB(beanName = "BookDAO")
+
     private BookDAOImpl bookDAO;
 
     public void create(Book book) {
