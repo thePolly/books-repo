@@ -7,11 +7,11 @@ import java.util.List;
 public interface AuthorDAO {
     void create(Author author);
 
-    void delete(long id);
+    void delete(Integer id);
 
     void update(Author author);
 
-    Author getById(long id);
+    Author getById(Integer id);
 
     List<Author> getAll();
 }

@@ -1,6 +1,5 @@
 package example.services;
 
-import example.dao.implementation.AuthorDAOImpl;
 import example.dao.interfaces.AuthorDAO;
 import example.entities.Author;
 
@@ -14,11 +13,12 @@ public class AuthorService {
     @EJB
     private AuthorDAO authorDAO;
 
-    public void create(Author author) {
+    public Author create(Author author) {
         authorDAO.create(author);
+        return author;
     }
 
-    public void delete(long id) {
+    public void delete(Integer id) {
         authorDAO.delete(id);
     }
 
@@ -26,7 +26,7 @@ public class AuthorService {
         authorDAO.update(author);
     }
 
-    public Author getById(long id) {
+    public Author getById(Integer id) {
         return authorDAO.getById(id);
     }
 

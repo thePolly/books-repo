@@ -19,24 +19,19 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/authors")
 @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-public class Servlet extends HttpServlet  {
+public class AuthorsServlet extends HttpServlet  {
 
     @EJB
     private AuthorService service;
 
-    @Override
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Author> groups = service.getAll();
-        int k = groups.size();
-        Author author = new Author();
-        author.setFirstName("alexi");
-        author.setLastName("r");
-        author.setAuthorId(1);
-        groups.add(author);
+   List<Author> groups = service.getAll();
         req.setAttribute("authors1", groups);
         RequestDispatcher dispatcher = req.getRequestDispatcher("authors.jsp");
         dispatcher.forward(req, resp);
     }
+
 
 
 

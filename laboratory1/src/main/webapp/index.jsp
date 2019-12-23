@@ -5,9 +5,10 @@
     <title>Library</title>
 </head>
 <body>
-<h3>Hello! Welcome to the most mysterious library!</h3>
+<h3 align="center">Hello! Welcome to the most mysterious library!</h3>
 <br>
-${test} -this is a test
 <a href="authors">Mysterious Authors are here</a>
+<br>
+<a href="books">Mysterious Books are here</a>
 </body>
 </html>

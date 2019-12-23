@@ -1,22 +1,24 @@
 package example.services;
 
-import example.dao.implementation.BookDAOImpl;
+import example.dao.interfaces.BookDAO;
+import example.entities.Author;
 import example.entities.Book;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.util.List;
 
+@Stateless
 public class BookService {
+    @EJB
+    private BookDAO bookDAO;
 
-
-    private BookDAOImpl bookDAO;
-
-    public void create(Book book) {
+    public Book create(Book book) {
         bookDAO.create(book);
+        return book;
     }
 
-    public void delete(long id) {
+    public void delete(Integer id) {
         bookDAO.delete(id);
     }
 
@@ -24,7 +26,7 @@ public class BookService {
         bookDAO.update(book);
     }
 
-    public Book getById(long id) {
+    public Book getById(Integer id) {
         return bookDAO.getById(id);
     }
 

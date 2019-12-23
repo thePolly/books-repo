@@ -1,27 +1,28 @@
 package example.dao.implementation;
 
 import example.dao.interfaces.BookDAO;
+import example.entities.Author;
 import example.entities.Book;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
 
+@Stateless
 public class BookDAOImpl implements BookDAO {
 
-    EntityManager entityManager = Persistence.createEntityManagerFactory("booksManager").createEntityManager();
-
-
+    @PersistenceContext(name = "myUnit")
+    EntityManager entityManager;
     public void create(Book book) {
         entityManager.getTransaction().begin();
         entityManager.persist(book);
         entityManager.getTransaction().commit();
     }
 
-    public void delete(long id) {
+    public void delete(Integer id) {
         entityManager.getTransaction().begin();
         entityManager.remove(getById(id));
         entityManager.getTransaction().commit();
@@ -33,7 +34,7 @@ public class BookDAOImpl implements BookDAO {
         entityManager.getTransaction().commit();
     }
 
-    public Book getById(long id) {
+    public Book getById(Integer id) {
         return entityManager.find(Book.class, id);
     }
 

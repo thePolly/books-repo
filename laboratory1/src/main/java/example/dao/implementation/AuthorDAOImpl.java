@@ -11,10 +11,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
-@Stateless(name = "AuthorDAOImpl")
+@Stateless
 public class AuthorDAOImpl implements AuthorDAO {
 
-    @PersistenceContext(name = "authorsManager")
+    @PersistenceContext(name = "myUnit")
     EntityManager entityManager;
 
     public void create(Author author) {
@@ -23,7 +23,7 @@ public class AuthorDAOImpl implements AuthorDAO {
         entityManager.getTransaction().commit();
     }
 
-    public void delete(long id) {
+    public void delete(Integer id) {
         entityManager.getTransaction().begin();
         entityManager.remove(getById(id));
         entityManager.getTransaction().commit();
@@ -35,7 +35,7 @@ public class AuthorDAOImpl implements AuthorDAO {
         entityManager.getTransaction().commit();
     }
 
-    public Author getById(long id) {
+    public Author getById(Integer id) {
         return entityManager.find(Author.class, id);
     }
 
